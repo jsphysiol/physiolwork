@@ -1,4 +1,4 @@
-
+% physiolwork()
 
 sampling_rate = 1000; % 1kHz=1000Hz
 F1 = 'data/data1.csv';
