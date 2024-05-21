@@ -1,17 +1,17 @@
 
 
 sampling_rate = 1000; % 1kHz=1000Hz
-F1 = '/data/data1.csv';
-F2 = '/data/data2.csv';
-F3 = '/data/data3.csv';
-F4 = '/data/data4.csv';
-F5 = '/data/data5.csv';
+F1 = 'data/data1.csv';
+F2 = 'data/data2.csv';
+F3 = 'data/data3.csv';
+F4 = 'data/data4.csv';
+F5 = 'data/data5.csv';
 
 for f = 1:5
-    % csvファイルの読み込み
+    % read csv file
     if f==1
         d = table2array(readtable(F1));
-        % Time window 解析区間（Eventから前後何秒？）
+        % Time window
         tw_pre = 5 * sampling_rate;
         tw_pst = 30 * sampling_rate;
     elseif f==2
@@ -58,10 +58,6 @@ for f = 1:5
     plot(HR,'g-');
     ylim(yl_HR); ylabel('Heart rate(bpm)');
     set(gca,'xtick',0:5*sampling_rate:tw_pre+tw_pst,'XTickLabel',-tw_pre/sampling_rate:5:tw_pst/sampling_rate);
-    % quantification
-    % max_MP = ;
-    % subplot(6,1,4); hold on;
-    % bar(max(MP))
 
     % save figure
     sfn = ['Fig_',num2str(f),'.pdf'];
